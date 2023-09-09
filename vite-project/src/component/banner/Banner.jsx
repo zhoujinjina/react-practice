@@ -2,32 +2,32 @@ import React, { lazy, useEffect, useRef } from "react";
 import "./Banner.scss";
 const Banner = () => {
   const ref = useRef();
-let timeout
+  let timeout;
   const to = (dir) => {
-if(timeout)return
-timeout=setTimeout(()=>{
-  
-  let dom = ref.current;
-  let scrollMount =
-    dir == "left"
-      ? dom.scrollLeft - dom.offsetWidth
-      : dom.scrollLeft + dom.offsetWidth;
-  if (dom.scrollLeft == dom.offsetWidth * 4) {
-    dom.scrollTo({
-      left: 0,
-      behavior: "smooth",
-    });
-  } else {
-    dom.scrollTo({
-      left: scrollMount,
-      behavior: "smooth",
-    });
-  }
- setTimeout(()=>timeout=null,800)
-},0)
-
-
+    if (timeout) return;
+    timeout = setTimeout(() => {
+      let dom = ref.current;
+      let scrollMount =
+        dir == "left"
+          ? dom?.scrollLeft - dom?.offsetWidth
+          : dom?.scrollLeft + dom?.offsetWidth;
+      if (dom?.scrollLeft == dom?.offsetWidth * 4) {
+        dom?.scrollTo({
+          left: 0,
+          behavior: "smooth",
+        });
+      } else {
+        dom?.scrollTo({
+          left: scrollMount,
+          behavior: "smooth",
+        });
+      }
+      setTimeout(() => (timeout = null), 800);
+    }, 0);
   };
+ let inter= setInterval(() => {
+    to("right")
+  }, 3000);
   return (
     <>
       <div className="banner" ref={ref}>
@@ -67,8 +67,8 @@ timeout=setTimeout(()=>{
           />
         </div>
       </div>
-      <button onClick={() => to("left")}>left</button>
-      <button onClick={() => to("right")}>right</button>
+      <button onClick={() =>{to("left") ;clearInterval(inter)}}>left</button>
+      <button onClick={() => {to("right") ;clearInterval(inter)}}>right</button>
     </>
   );
 };
