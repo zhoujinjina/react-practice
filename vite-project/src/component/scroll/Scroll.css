@@ -1,0 +1,19 @@
+.root {
+    height: 400px;
+    width: 990px;
+    background-color: #bfa;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    padding: 0 10px;
+  }
+  .item {
+    height: 380px;
+    width: 240px;
+    flex-shrink: 0;
+    background-color: red;
+  
+  }
+  
