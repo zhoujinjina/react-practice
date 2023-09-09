@@ -1,0 +1,21 @@
+.banner {
+  height: 80vh;
+  width: 100vw;
+  background-color: #bfa;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+
+  div {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+  }
+}
