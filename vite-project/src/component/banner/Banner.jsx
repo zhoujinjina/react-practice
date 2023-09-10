@@ -1,4 +1,4 @@
-import React, { lazy, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import "./Banner.scss";
 const Banner = () => {
   const ref = useRef();
@@ -11,14 +11,14 @@ const Banner = () => {
         dir == "left"
           ? dom?.scrollLeft - dom?.offsetWidth
           : dom?.scrollLeft + dom?.offsetWidth;
-      if (dom?.scrollLeft == dom?.offsetWidth * 4) {
-        dom?.scrollTo({
-          left: 0,
-          behavior: "smooth",
-        });
-      } else {
+   
         dom?.scrollTo({
           left: scrollMount,
+          behavior: "smooth",
+        });
+       if (dom?.scrollLeft == dom?.offsetWidth * 4) {
+        dom?.scrollTo({
+          left: 0,
           behavior: "smooth",
         });
       }
