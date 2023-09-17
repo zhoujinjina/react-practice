@@ -1,21 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useState } from "react"
 
-const test = () => {
-    let a=1
-    const add=()=>{
-        a+=1
-    }
-    useEffect(()=>{
-        console.log("a changed")
-    },[a])
-
-  return (
-    <div>
-      {a}
-      <button onClick={add}>add</button>
-    </div>
-  )
+function Index(){
+  const [ num ,setNumber ] = useState(0)
+  const handerClick=()=>{
+      for(let i=0; i<5;i++ ){
+         setTimeout(() => {
+              setNumber(num=>num+1)
+             
+              console.log(num)
+         }, 1000)
+      }
+  }
+  return <button onClick={ handerClick } >{ num }</button>
 }
-
-let a=1
-export default test
+export default Index
